@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BankSimulatorController">
+   <children>
+      <AnchorPane>
+         <children>
+            <AnchorPane prefHeight="650.0" prefWidth="1276.0">
+               <children>
+                  <GridPane hgap="20.0" layoutX="30.0" layoutY="27.0" prefHeight="161.0" prefWidth="682.0">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="50.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="printAllAccountsButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#printAllAccountsButtonPressed" text="Print all accounts" GridPane.rowIndex="3" />
+                        <Button fx:id="monthlyUpdateButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#monthlyUpdateButtonPressed" text="Run monthly update" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Button fx:id="readrecordsButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#readrecordsButtonPressed" text="Read records" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <Button fx:id="addAccountButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addAccountButtonPressed" text="Add account" GridPane.rowIndex="2" />
+                        <Button fx:id="updateAccountButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#updateAccountButtonPressed" text="Update account" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button fx:id="displayAccountButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#displayAccountButtonPressed" text="Display account" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Button fx:id="quitButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#quitButtonPressed" text="Quit" GridPane.columnIndex="3" />
+                        <Label fx:id="bankSimulatorLabel" alignment="CENTER" text="Bank" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </GridPane>
+                  <TextArea fx:id="outputTextField" editable="false" layoutX="50.0" layoutY="343.0" prefHeight="267.0" prefWidth="612.0" />
+                  <GridPane fx:id="accountNumberGridpane" hgap="6.0" layoutX="50.0" layoutY="207.0" prefHeight="40.0" prefWidth="289.0" vgap="20.0" visible="false">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="123.0" minWidth="10.0" prefWidth="123.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="177.0" minWidth="10.0" prefWidth="159.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label fx:id="optionLabel" maxWidth="1.7976931348623157E308" text="Account Number :" />
+                        <TextField fx:id="optionTextField" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
+                  <GridPane fx:id="accountTypeGridPane" layoutX="870.0" layoutY="91.0" prefHeight="35.0" prefWidth="164.0" visible="false">
+                     <children>
+                        <ToggleButton fx:id="checkingToggleButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#checkingToggleButtonChecked" prefHeight="31.0" prefWidth="158.0" text="Checking" />
+                        <ToggleButton fx:id="savingsToggleButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#savingsToggleButtonChecked" text="Savings" GridPane.columnIndex="1" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <GridPane fx:id="addAccountGridPane" hgap="15.0" layoutX="750.0" layoutY="150.0" prefHeight="391.0" prefWidth="467.0" visible="false">
+                     <children>
+                        <Label fx:id="accountNumberLabel" text="Account number" />
+                        <Label fx:id="additionalLabel" text="Monthly Fee" GridPane.rowIndex="6" />
+                        <Label fx:id="interestRateLabel" text="Interest Rate" GridPane.rowIndex="7" />
+                        <Label fx:id="firstNameLabel" text="First name" GridPane.rowIndex="1" />
+                        <Label fx:id="lastNameLabel" text="Last name" GridPane.rowIndex="2" />
+                        <Label fx:id="phoneNumberLabel" text="Phone number" GridPane.rowIndex="3" />
+                        <Label fx:id="emailLabel" text="Email" GridPane.rowIndex="4" />
+                        <TextField fx:id="firstNameTextField" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="lastNameTextField" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="phoneNumberTextField" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="emailTextField" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Button fx:id="createAccountButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#createUserButtonPressed" text="Create Account" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                        <TextField fx:id="accountNumberTextField" layoutX="145.0" layoutY="68.0" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" />
+                        <Label fx:id="balanceLabel" layoutX="84.0" layoutY="268.0" text="Opening Balance" GridPane.rowIndex="5" />
+                        <TextField fx:id="balanceTextField" layoutX="182.0" layoutY="263.0" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Slider fx:id="interestRateSlider" blockIncrement="1.0" majorTickUnit="20.0" maxWidth="1.7976931348623157E308" minorTickCount="0" value="50.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <Label fx:id="interestRateValueLabel" focusTraversable="false" maxWidth="1.7976931348623157E308" text="------" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                        <TextField fx:id="additionalTextField" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Button fx:id="cancelAccountCreationButton" layoutX="155.0" layoutY="361.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cancelProcess" text="Cancel" GridPane.rowIndex="9" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="157.0" minWidth="10.0" prefWidth="154.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="258.0" minWidth="10.0" prefWidth="233.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="225.0" minWidth="10.0" prefWidth="121.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="61.0" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="36.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+                  <GridPane fx:id="runGridpane" hgap="20.0" layoutX="190.0" layoutY="290.0" prefHeight="30.0" prefWidth="319.0" visible="false">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="runButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#runButtonPressed" text="Make Transaction" />
+                        <Button fx:id="cancelTransactionButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cancelProcess" prefHeight="31.0" prefWidth="145.0" text="Cancel" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
+                  <GridPane fx:id="transactionGridpane" hgap="6.0" layoutX="371.0" layoutY="207.0" prefHeight="55.0" prefWidth="302.0" vgap="20.0" visible="false">
+                     <children>
+                        <Label fx:id="transactionAmountLabel" text="Transaction amount: " GridPane.rowIndex="1" />
+                        <TextField fx:id="transactionAmountTextField" maxWidth="1.7976931348623157E308" prefHeight="31.0" prefWidth="127.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="transactionTypeLabel" layoutX="318.0" layoutY="58.0" text="Transaction type: " />
+                        <MenuButton fx:id="transactionTypeMenuButton" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Type" GridPane.columnIndex="1">
+                           <items>
+                              <MenuItem fx:id="depositMenuItem" mnemonicParsing="false" onAction="#depositMenuItemSelected" text="Deposit" />
+                              <MenuItem fx:id="withdrawlMenuItem" mnemonicParsing="false" onAction="#withdrawlMenuItemSelected" text="Withdrawl" />
+                           </items>
+                        </MenuButton>
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="148.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="167.0" minWidth="10.0" prefWidth="157.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
