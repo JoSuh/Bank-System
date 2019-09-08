@@ -1,2 +1,2 @@
 # Bank-System
-BAnk system with Javafx
+BAnk system using JavaFX
