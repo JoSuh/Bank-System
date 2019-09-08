@@ -5,11 +5,8 @@ import java.util.Scanner;
 
 
 /** File name:	BankAccount.java
-* Author:		Jo Suh, s040943462
-* Course:		CST8132 – OOP
-* Assignment: 	Lab 9
+* Author:		Jo Suh
 * Date:			April.16, 2019
-* Professor:	Dr. Mohammad Kadhum
  * Purpose:		This file holds the BankAccount class.
  */
 
